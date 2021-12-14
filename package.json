@@ -1,0 +1,27 @@
+{
+  "name": "final_project_part_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduardoVelarde/final_project_part_2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EduardoVelarde/final_project_part_2/issues"
+  },
+  "homepage": "https://github.com/EduardoVelarde/final_project_part_2#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "mongoose": "^6.1.1",
+    "uuid": "^8.3.2"
+  }
+}
