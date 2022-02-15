@@ -5,7 +5,7 @@
 
 # Project Routes {products}
 <ul>
-    <li><br>/getAll</br> use the following endpoint to retrieve all the product that has been added to the database</li>
+    <li><b>/getAll</b> use the following endpoint to retrieve all the product that has been added to the database</li>
     <li><br>/getProduct?id=""</br> Get a product using his matching ID and pass it by query</li>
     <li><br>/saveProduct</br> Post method, send the product info using a JSON with the following format:
     object:{
