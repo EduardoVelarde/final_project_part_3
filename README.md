@@ -27,4 +27,9 @@
     * /deleteAllProduct Delete method, using this endpoint should delete all the carts that has been created
 
     # Project Routes {carts}
-    
+    Brief Resume
+    * /createCart creates a cart and return his Id as value
+    * /deleteCart deletes a cart and return success
+    * /showAllItems return all the carts and the product that has been added to it
+    * /addItems?idCart=""&idProduct="" with idCart and idProdct adds a product to the specified cart
+    * /deleteItems?idCart=""&idProduct="" with the specified carts delete a product within it
