@@ -26,7 +26,7 @@
     * /deleteProduct Delete method, is require to send the product ID and the attributes you want to change, send Id using query params and Json for attributes
     * /deleteAllProduct Delete method, using this endpoint should delete all the carts that has been created
 
-    # Project Routes {carts}
+# Project Routes {carts}
     Brief Resume
     * /createCart creates a cart and return his Id as value
     * /deleteCart deletes a cart and return success
