@@ -4,10 +4,10 @@
 <p>In this project youll find an implementation of Ecommerce backend using local persitence storage</p>
 
 # Project Routes {products}
-<ul>
-    <li><b>/getAll</b> use the following endpoint to retrieve all the product that has been added to the database</li>
-    <li><br>/getProduct?id=""</br> Get a product using his matching ID and pass it by query</li>
-    <li><br>/saveProduct</br> Post method, send the product info using a JSON with the following format:
+
+    *    **/getAll** use the following endpoint to retrieve all the product that has been added to the database
+    *    **/getProduct?id=""** Get a product using his matching ID and pass it by query
+    *   **/saveProduct** Post method, send the product info using a JSON with the following format:
     object:{
             name:{
                 type:String
@@ -21,5 +21,4 @@
             url:String,
             stock:Number
         }
-    </li>
-<ul>
+    
