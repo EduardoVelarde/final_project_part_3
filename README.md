@@ -1,3 +1,12 @@
+<head>
+<style>
+
+
+b {
+  color: red;
+}
+</style>
+</head>
 # final_project_part_2
 # This proyect has implemented Dao Structure to have many Databases Mongo/FileStorage
 <h1 style="color=BLUE">Dao Services using JavaScript with NodeJS </h1>
