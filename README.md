@@ -4,7 +4,6 @@
 <p>In this project youll find an implementation of Ecommerce backend using local persitence storage</p>
 
 # Project Routes {products}
-<h1>Prodouct Routes</h1>
 <ul>
     <li><br>/getAll</br> use the following endpoint to retrieve all the product that has been added to the database</li>
     <li><br>/getProduct?id=""</br> Get a product using his matching ID and pass it by query</li>
