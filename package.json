@@ -20,6 +20,7 @@
   "homepage": "https://github.com/EduardoVelarde/final_project_part_2#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "firebase-admin": "^10.0.2",
     "moment": "^2.29.1",
     "mongoose": "^6.1.1",
     "uuid": "^8.3.2"

@@ -1,6 +1,8 @@
+import DaoProductsFirebase from './products/DaoProductsFirebase.js'
+
 let productDao
 let cartsDao
-switch('mongo'){
+switch('firebase'){
     case 'json':
             const { default:DaoCartFiles}=await import('./carts/DaoCartsFiles.js')
             const { default:DaoProductsFiles}=await import('./products/DaoProductsFiles.js')
@@ -13,6 +15,12 @@ switch('mongo'){
             productDao= new DaoProductsMongo()
             cartsDao=new DaoCartsMongo()
             break
+            case 'firebase':
+                const { default:DaoCartsFirebase}=await import('./carts/DaoCartFirebase.js')
+                const { default:DaoProductsFirebase}=await import('./products/DaoProductsFirebase.js')
+                productDao= new DaoProductsFirebase()
+                cartsDao=new DaoCartsFirebase()
+                break
 }
 
 export {productDao,cartsDao}
