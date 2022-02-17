@@ -7,10 +7,6 @@
   "scripts": {
     "start": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EduardoVelarde/final_project_part_2.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
