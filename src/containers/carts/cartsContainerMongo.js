@@ -41,7 +41,7 @@ class Cart{
     }
     async showAllItems() {
         try{
-            let query = this.Cart.find({}).populate('product')
+            let query = this.Cart.find({}).populate('products')
             return query;
         }catch(err){
             console.log(err)

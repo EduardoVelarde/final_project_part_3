@@ -1,9 +1,11 @@
+import dotenv from "dotenv"
+dotenv.config()
 export default {
     json:{
         path:'/DB'
     },
     mongoose:{
-        database:'mongodb://localhost:27017/Ecommerce'
+        database:`mongodb+srv://eduardo:${process.env.mongo_password}@ecommerceatlas.ddpzv.mongodb.net/Ecommerce-coder?retryWrites=true&w=majority`
     },
     firebase:{
             "type": "service_account",
