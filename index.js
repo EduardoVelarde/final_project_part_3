@@ -1,13 +1,34 @@
 import express from 'express'
-import {productDao,cartsDao} from './src/daos/index.js'
 import router_products from './rooters/product_controller.js'
 import router_carts from './rooters/carts_controller.js'
+import router_users from './rooters/users_controller.js'
+import passport from 'passport'
+import session from 'express-session'
+
 const app=express()
 const PORT=8080
 app.use(express.json())
+app.use(express.urlencoded({extended:false}))
+//Middlewares
+const auth=(req,res,next)=>{
+    if(req.isAuthenticated())return next();
+    res.redirect('/login');
+}
+
+//session
+app.use(session({
+    secret:'This is a secret',
+    resave:true,
+    saveUninitialized:true
+}))
+//PASSPORT
+app.use(passport.initialize())
+app.use(passport.session())
+
 
 app.use("/products",router_products)
 app.use("/carts",router_carts)
+app.use("/users",router_users)
 
 app.listen(PORT,()=>{
     console.log(`Listening on port ${PORT}`)
