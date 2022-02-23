@@ -3,7 +3,8 @@ import Cart from '../../containers/carts/cartsContainerMongo.js'
 class DaoCartsMongo extends Cart {
     constructor(){
         super({
-           name:'product'
+           nameRef1:'product',
+           nameRef2:'user'
         },'cart')
     }
     

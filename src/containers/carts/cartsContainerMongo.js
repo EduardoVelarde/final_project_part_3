@@ -18,15 +18,20 @@ class Cart{
         //Note always use the world this for variable declared in the constructor since is require to use the value 
         //thorught the class
         this.cartSchema=new Schema({
-            products:[{ type: Schema.Types.ObjectId, ref: tableReference.name }]
+            user:{type: Schema.Types.ObjectId,ref:tableReference.nameRef2},
+            products:[{ type: Schema.Types.ObjectId, ref: tableReference.nameRef1 }],
+            status:{type:String,
+            default:'Not Submited'}
         })
     
         this.Cart=model(tableName,this.cartSchema);
     }
-    async createCart() {
-        let cart1 = new this.Cart()
-        let newCart = await cart1.save()
-        return newCart;
+    async createCart(currentUser) {
+            let cart1 = new this.Cart()
+            let newCart = await cart1.save()
+            newCart.user= currentUser
+            newCart.save()
+            return newCart;
     }
     async deleteCart(cartId) {
         try{
@@ -39,9 +44,9 @@ class Cart{
             return "Card was not found"
         }
     }
-    async showAllItems() {
+    async showAllItems(user) {
         try{
-            let query = this.Cart.find({}).populate('products')
+            let query = this.Cart.find({}).populate('products').populate('users').exec()
             return query;
         }catch(err){
             console.log(err)
@@ -55,6 +60,7 @@ class Cart{
             cartFound.products.push(product)
             return await cartFound.save();
         }catch(err){
+            console.log(err)
             return "something went wrong =("
         }
         
