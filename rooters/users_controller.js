@@ -25,6 +25,9 @@ router.post('/register',async(req,res)=>{
     
     res.status(201).json({msg:'success',data:userResult})
 })
+router.get('/registro',(req,res)=>{
+    res.send('user registed!!!')
+})
 router.post('/signup',passport.authenticate('local-signup',{
     successRedirect: '/SUCESS(templateInProgress)',
     failureRedirect: '/PleaseLogin(templateInProgress)',
@@ -40,8 +43,6 @@ router.get('/logout',(req,res)=>{
     req.logOut();
     res.send('your session has ended')
 })
-router.get('/signup',(req,res)=>{
-    res.send('user registed!!!')
-})
+
 
 export default router

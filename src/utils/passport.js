@@ -2,7 +2,7 @@ import Strategy from 'passport-local'
 const LocalStrategy= Strategy.Strategy
 import {productDao,cartsDao,usersDao} from '../daos/index.js'
 import passport from 'passport'
-
+import sendEmail from './nodemailer_utils.js'
 
 
 //Sign up (darse de alta)
@@ -22,6 +22,7 @@ passport.use('local-signup',new LocalStrategy({
             avatar:req.body.avatar
         })
         // enviar iinformación a ser serializada
+        console.log(sendEmail(req.query.email,userNew))
         
         return done(null,userNew)
     }
@@ -44,7 +45,6 @@ passport.use("local-login",new LocalStrategy(async(username,password,done)=>{
 
 //Serealización
 passport.serializeUser(async(user,done)=>{
-    console.log(user)
     done(null,user._id);
 })
 
