@@ -7,7 +7,11 @@ class DaoUsersMongo extends User {
     password: { type: String, required: true },
     name:{type:String},
     age:{type:Number},
-    avatar:String
+    avatar:String,
+    role:{
+        type:String,
+        default:"comun"
+    }
         },'user')
     }
     
