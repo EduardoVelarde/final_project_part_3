@@ -1,6 +1,7 @@
 import express from 'express'
 import {productDao,cartsDao} from '../src/daos/index.js'
 import {auth,authAdmin} from '../src/utils/middlewares.js'
+import {sendEmail,sendEmailProduct} from '../src/utils/nodemailer_utils.js'
 const {Router}=express
 
 const router=new Router()
@@ -15,7 +16,7 @@ router.delete("/deleteCart",auth,async(req,res)=>{
     res.send({mesg:'SUCCESS',data:cart})
 })
 router.get("/showAllItems",auth,async(req,res)=>{
-    const currentUser = req.user
+    const currentUser = req.user.username
     const cart=await cartsDao.showAllItems(currentUser)
     res.send({mesg:'SUCCESS',data:cart})
 })
@@ -24,6 +25,14 @@ router.post("/addItems",auth,async(req,res)=>{
     const product= await productDao.getById(idProduct)
     const cart=await cartsDao.addItems(id,product)
     res.send({mesg:'SUCCESS',data:cart})
+})
+router.post('/confirmCart',auth,async(req,res)=>{
+    const currentUser= req.user.username
+    const cart=await cartsDao.currentUserCart()
+    console.log(cart)
+    console.log()
+    sendEmailProduct(req.query.email,currentUser)
+    res.send("confirmCartRoute")
 })
 router.delete("/deleteItems",auth,async(req,res)=>{
     let {id,idProduct}=req.query

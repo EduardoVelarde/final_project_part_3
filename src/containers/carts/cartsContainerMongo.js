@@ -21,7 +21,10 @@ class Cart{
             user:{type: Schema.Types.ObjectId,ref:tableReference.nameRef2},
             products:[{ type: Schema.Types.ObjectId, ref: tableReference.nameRef1 }],
             status:{type:String,
-            default:'Not Submited'}
+            default:'Not Submited'},
+            username:String
+        },{
+            timestamps: true,
         })
     
         this.Cart=model(tableName,this.cartSchema);
@@ -30,6 +33,7 @@ class Cart{
             let cart1 = new this.Cart()
             let newCart = await cart1.save()
             newCart.user= currentUser
+            newCart.username=currentUser.username
             newCart.save()
             return newCart;
     }
@@ -46,13 +50,31 @@ class Cart{
     }
     async showAllItems(user) {
         try{
-            let query = this.Cart.find({}).populate('products').populate('users').exec()
+            let query = this.Cart.find({username:user}).populate('products').populate('user').exec()
             return query;
         }catch(err){
             console.log(err)
             return "theres no items yet to display"
         }
-        
+    }
+    async deleteUserCartNotSubmited(user){
+        try{
+            let query = await this.Cart.deleteMany({status:"Not Submited"},{username:user.username})
+            return true;
+        }catch(err){
+            console.log(err)
+            return "Not carts has been found"
+        }
+    }
+    async currentUserCart(){
+        try{
+            let query = await this.Cart.findOne({}, {}, { sort: { 'created_at' : -1 } }, function(err, post) {
+                console.log( post );
+              });
+            return query
+        }catch(err){
+
+        }
     }
     async addItems(cartId, product) {
         try{
