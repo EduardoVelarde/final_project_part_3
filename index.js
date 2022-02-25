@@ -9,11 +9,6 @@ const app=express()
 const PORT=8080
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
-//Middlewares
-const auth=(req,res,next)=>{
-    if(req.isAuthenticated())return next();
-    res.redirect('/login');
-}
 
 //session
 app.use(session({

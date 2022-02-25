@@ -29,8 +29,10 @@ router.post("/addItems",auth,async(req,res)=>{
 router.post('/confirmCart',auth,async(req,res)=>{
     const currentUser= req.user.username
     const cart=await cartsDao.currentUserCart()
-    console.log(cart)
-    console.log()
+    if(!cart){
+        res.send("please add items firts")
+    }
+    //let cartSubmited=await cartsDao.submitCart(cart._id)
     sendEmailProduct(req.query.email,currentUser)
     res.send("confirmCartRoute")
 })

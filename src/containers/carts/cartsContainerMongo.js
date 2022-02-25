@@ -1,6 +1,7 @@
 import config from '../../config.js'
 import mongoose from 'mongoose'
 import Product from '../products/containerProducts.js';
+import logger from '../../utils/logger.js'
 
 const Schema = mongoose.Schema;
 const model = mongoose.model;
@@ -41,10 +42,12 @@ class Cart{
         try{
             let cartDeleted = this.Cart.findByIdAndDelete({_id:id});
             if(!cartDeleted){
+                logger.trace('not id has pass')
                 return "Card was not found"
             }
             return "Card has been successfully deleted"
         }catch(err){
+            logger.warn(err)
             return "Card was not found"
         }
     }
@@ -53,7 +56,7 @@ class Cart{
             let query = this.Cart.find({username:user}).populate('products').populate('user').exec()
             return query;
         }catch(err){
-            console.log(err)
+            logger.warn(err)
             return "theres no items yet to display"
         }
     }
@@ -62,7 +65,7 @@ class Cart{
             let query = await this.Cart.deleteMany({status:"Not Submited"},{username:user.username})
             return true;
         }catch(err){
-            console.log(err)
+            logger.warn(err)
             return "Not carts has been found"
         }
     }
@@ -73,8 +76,13 @@ class Cart{
               });
             return query
         }catch(err){
-
+            logger.warn(err)
         }
+    }
+    async submitCart(id){
+        let cart = this.Cart.findOne({_id:id})
+        cart.status="Submited"
+        return await cart.save()
     }
     async addItems(cartId, product) {
         try{
@@ -82,7 +90,7 @@ class Cart{
             cartFound.products.push(product)
             return await cartFound.save();
         }catch(err){
-            console.log(err)
+            logger.warn(err)
             return "something went wrong =("
         }
         
@@ -95,7 +103,7 @@ class Cart{
             cartFound.products=cartFound.products.filter(x=>x.toString()!=product._id.toString())
             return await cartFound.save();
         }catch(err){
-            console.log(err)
+            logger.warn(err)
             return "something went wrong =("
         }
     }
