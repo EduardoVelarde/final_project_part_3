@@ -5,14 +5,48 @@ aswell more complex behaivor using cart and adding product to the cart, when a u
 
 ## Authentication process
 
-The firts to do is Register a user to database the database that is begin used is MongoDB, use the following endpoint to add users
+The firts to do is Register a user to database the database that is begin used is MongoDB, use the following endpoint to add users 
 
 ```Register
 ecommerce-coder-edu.herokuapp.com/users/signup?email=eduardolopezvelardes@gmail.com
 ```
+use the following body to add it correctly: 
 
-Follow [our installing guide](http://expressjs.com/en/starter/installing.html)
-for more information.
+```
+{
+    "username":String,
+    "password":String,
+    "name":String,
+    "age":Integer,
+    "avatar":String
+}
+```
+finally use the query params to recieve an email when a user register to the app! ( this is not meant to have too many ppl using this XD)
+
+Login
+
+use the following endpoint to login into the app
+
+```Login
+ecommerce-coder-edu.herokuapp.com/users/signin
+```
+
+This service only requires your username and passwor as is shown below
+
+```
+{
+    "username":String,
+    "password":String
+}
+```
+
+LogOut
+
+Heres a route to end the session in the service
+
+```LogOut
+ecommerce-coder-edu.herokuapp.com/users/logout
+```
 
 ## Features
 
