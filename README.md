@@ -1,25 +1,9 @@
-[![Express Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
 
-  Fast, unopinionated, minimalist web framework for [node](http://nodejs.org).
+# Ecommerce Backend Using JavaScript
+This project consist in a backend which has databases and also authentication and autorization logic
+aswell more complex behaivor using cart and adding product to the cart, when a user register in endpoint service it adds a cart to the user and the user push products to it.
 
-  [![NPM Version][npm-image]][npm-url]
-  [![NPM Downloads][downloads-image]][downloads-url]
-  [![Linux Build][ci-image]][ci-url]
-  [![Windows Build][appveyor-image]][appveyor-url]
-  [![Test Coverage][coveralls-image]][coveralls-url]
-
-```js
-const express = require('express')
-const app = express()
-
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
-
-app.listen(3000)
-```
-
-## Installation
+## Authentication process
 
 This is a [Node.js](https://nodejs.org/en/) module available through the
 [npm registry](https://www.npmjs.com/).
