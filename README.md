@@ -23,7 +23,7 @@ use the following body to add it correctly:
 ```
 finally use the query params to recieve an email when a user register to the app! ( this is not meant to have too many ppl using this XD)
 
-Login
+* Login
 
 use the following endpoint to login into the app
 
@@ -40,7 +40,7 @@ This service only requires your username and passwor as is shown below
 }
 ```
 
-LogOut
+ * LogOut
 
 Heres a route to end the session in the service
 
@@ -48,15 +48,28 @@ Heres a route to end the session in the service
 ecommerce-coder-edu.herokuapp.com/users/logout
 ```
 
-## Features
+## User process
 
-  * Robust routing
-  * Focus on high performance
-  * Super-high test coverage
-  * HTTP helpers (redirection, caching, etc)
-  * View system supporting 14+ template engines
-  * Content negotiation
-  * Executable for generating applications quickly
+When a user has Sing in or Sign up should be able to access to the carts services and add products
+Firts should have access to see all the product that is currently in the app with the follwing URL
+
+```AllProducts
+ecommerce-coder-edu.herokuapp.com/products/getAll
+```
+
+All the items and the caterogies of this one should be availabel you need to get the id of one product to add it to the cart and also having the cart id, to the cart id you need to consult the following URL
+
+```Cart
+ecommerce-coder-edu.herokuapp.com/carts/showAllItems
+```
+Use the final cart of the list to add items to it, in the next update this will fixed
+
+And finally use the next endpoint to send the cart you want to purchase
+
+```Cart
+ecommerce-coder-edu.herokuapp.com/carts/confirmCart?email=eduardolopezvelardes@gmail.com
+```
+Use the query param to use an email and get a notify when someone send his cart to proceed with the process
 
 ## Docs & Community
 
