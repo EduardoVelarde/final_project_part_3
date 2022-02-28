@@ -5,20 +5,10 @@ aswell more complex behaivor using cart and adding product to the cart, when a u
 
 ## Authentication process
 
-This is a [Node.js](https://nodejs.org/en/) module available through the
-[npm registry](https://www.npmjs.com/).
+The firts to do is Register a user to database the database that is begin used is MongoDB, use the following endpoint to add users
 
-Before installing, [download and install Node.js](https://nodejs.org/en/download/).
-Node.js 0.10 or higher is required.
-
-If this is a brand new project, make sure to create a `package.json` first with
-the [`npm init` command](https://docs.npmjs.com/creating-a-package-json-file).
-
-Installation is done using the
-[`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
-
-```bash
-$ npm install express
+```Register
+ecommerce-coder-edu.herokuapp.com/users/signup?email=eduardolopezvelardes@gmail.com
 ```
 
 Follow [our installing guide](http://expressjs.com/en/starter/installing.html)
